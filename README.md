@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+# BentaFlow
 
-## Project info
+BentaFlow is a multi-branch Point of Sale and inventory management platform designed for small and big business owners.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This project is personalized and maintained by **Joel Baluma**.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Public landing page for product marketing and onboarding
+- Authentication:
+  - Login with email/password
+  - Sign-up form
+  - Sign up with Google flow (configurable via environment variable)
+- Role-aware app access for `ADMIN`, `MANAGER`, and `CASHIER`
+- My Store Management page for business profile and store operations settings
+- Dashboard with summary stats and sales insights
+- POS module:
+  - Product search and category filtering
+  - Cart management, discounts, tax, split payment
+  - Sale creation and receipt view
+- Products module (full CRUD):
+  - Create, read, update, delete products
+  - Store relationship (`locationId`)
+  - Category assignment
+  - Extended product fields (brand, unit, description, tax rate, reorder level, active status)
+- Categories module for category management
+- Inventory module:
+  - Stock list, low-stock, movements
+  - Stock adjustments
+- Purchase Orders:
+  - Table list view
+  - Create PO with line items
+  - View PO details
+  - Receive PO with received quantity input
+- Reports:
+  - Summary metrics
+  - Sales report
+  - Top products
+- Users module for role-based user management
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- React 18 + TypeScript
+- Vite
+- React Router
+- TanStack Query
+- Tailwind CSS
+- shadcn/ui + Radix UI
+- Lucide React icons
+- Recharts
+- Vitest + Testing Library
+- ESLint
 
-Changes made via Lovable will be committed automatically to this repo.
+## Installation
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js 18+ (recommended: Node 20+)
+- npm
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Clone repository
 
-Follow these steps:
+```bash
+git clone <your-repo-url>
+cd benta-flow
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 2. Install dependencies
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 3. Configure environment
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Create or update `.env`:
+
+```env
+VITE_API_BASE_URL="http://127.0.0.1:8000/api"
+VITE_USE_MOCK_API="true"
+```
+
+Optional for Google signup:
+
+```env
+VITE_GOOGLE_SIGNUP_URL="http://127.0.0.1:8000/api/auth/google/redirect"
+```
+
+### 4. Run development server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open the local URL shown in terminal (usually `http://localhost:5173`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - start development server
+- `npm run build` - build production bundle
+- `npm run preview` - preview production build
+- `npm run test` - run tests once
+- `npm run test:watch` - run tests in watch mode
+- `npm run lint` - run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Notes
 
-## What technologies are used for this project?
+- Set `VITE_USE_MOCK_API="true"` to use local mock handlers and seed data.
+- Set `VITE_USE_MOCK_API="false"` to use your real backend.
 
-This project is built with:
+## Author
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**Joel Baluma**
