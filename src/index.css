@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 97%;
+    --foreground: 224 24% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 24% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 24% 12%;
+
+    --primary: 168 72% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 224 24% 12%;
+
+    --muted: 220 12% 93%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 168 72% 36%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 228 24% 12%;
+    --sidebar-foreground: 220 14% 65%;
+    --sidebar-primary: 168 72% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 228 20% 18%;
+    --sidebar-accent-foreground: 220 14% 92%;
+    --sidebar-border: 228 18% 20%;
+    --sidebar-ring: 168 72% 44%;
+
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 210 80% 52%;
+    --info-foreground: 0 0% 100%;
+
+    --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.03);
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.04), 0 1px 2px -1px hsl(0 0% 0% / 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.04), 0 2px 4px -2px hsl(0 0% 0% / 0.03);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.05), 0 4px 6px -4px hsl(0 0% 0% / 0.03);
+  }
+
+  .dark {
+    --background: 228 24% 8%;
+    --foreground: 220 14% 92%;
+    --card: 228 22% 12%;
+    --card-foreground: 220 14% 92%;
+    --popover: 228 22% 12%;
+    --popover-foreground: 220 14% 92%;
+    --primary: 168 72% 44%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 228 18% 18%;
+    --secondary-foreground: 220 14% 92%;
+    --muted: 228 16% 16%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 228 16% 20%;
+    --input: 228 16% 20%;
+    --ring: 168 72% 44%;
+    --sidebar-background: 228 28% 7%;
+    --sidebar-foreground: 220 14% 60%;
+    --sidebar-primary: 168 72% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 228 20% 14%;
+    --sidebar-accent-foreground: 220 14% 92%;
+    --sidebar-border: 228 18% 14%;
+    --sidebar-ring: 168 72% 44%;
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 210 80% 52%;
+    --info-foreground: 0 0% 100%;
+
+    --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.1);
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.15), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.15), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.2), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50 shadow-[var(--shadow-sm)];
+  }
+
+  .glass-card-elevated {
+    @apply bg-card/80 backdrop-blur-xl border border-border/40 shadow-[var(--shadow-md)];
+  }
+
+  .page-header {
+    @apply mb-8;
+  }
+
+  .page-title {
+    @apply text-2xl font-semibold text-foreground tracking-tight;
+  }
+
+  .page-description {
+    @apply text-sm text-muted-foreground mt-1;
+  }
+
+  .stat-value {
+    @apply text-2xl font-semibold tabular-nums tracking-tight;
+  }
+
+  .section-title {
+    @apply text-sm font-medium text-muted-foreground uppercase tracking-wider;
+  }
+
+  .landing-grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(13, 122, 88, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13, 122, 88, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center top;
+  }
+
+  .animate-rise {
+    animation: rise-in 0.8s ease-out both;
+  }
+
+  .animate-float {
+    animation: float-y 5s ease-in-out infinite;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-float {
+    animation: none;
+  }
+}
